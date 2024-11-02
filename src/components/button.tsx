@@ -1,16 +1,27 @@
-import React from 'react';
-import { Text, StyleSheet, Pressable } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 
-export default function Button(props) {
-    const { onPress, title = 'Save' } = props;
+import React, { ReactNode } from 'react';
+import { Text, StyleSheet, Pressable, View, GestureResponderEvent, StyleProp, ViewStyle } from 'react-native';
+
+interface ButtonProps {
+    onPress: any,
+    children?: ReactNode,
+    style: StyleProp<ViewStyle>
+}
+
+const Button: React.FC<ButtonProps> = ({
+    onPress,
+    children,
+    style
+}) => {
     return (
-        <Pressable style={styles.button} onPress={onPress}>
-            <Text style={styles.text}>{title}</Text>
-        </Pressable>
+    <Pressable style={[defaultButtonStyle.button, style]} onPress={onPress}>
+        {children}
+    </Pressable>
     );
 }
 
-const styles = StyleSheet.create({
+const defaultButtonStyle = StyleSheet.create({
     button: {
         alignItems: 'center',
         justifyContent: 'center',
@@ -18,7 +29,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 32,
         borderRadius: 4,
         elevation: 3,
-        backgroundColor: 'black',
+        backgroundColor: 'transparent',
     },
     text: {
         fontSize: 12,
@@ -27,3 +38,5 @@ const styles = StyleSheet.create({
         color: 'white',
     },
 });
+
+export default Button;

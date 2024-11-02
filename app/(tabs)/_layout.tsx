@@ -1,3 +1,5 @@
+import GlobalStyles from '@/components/styles';
+import { AntDesign, Entypo, Feather, Ionicons } from '@expo/vector-icons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 
@@ -10,24 +12,67 @@ export default function TabLayout() {
     return (
         <Tabs screenOptions = {{tabBarActiveTintColor: 'blue'}}>
             <Tabs.Screen
+            name="giving"
+            options = {{
+                title: 'Giving',
+                headerTitleStyle: {
+                    color: 'white'
+                },
+                tabBarShowLabel: false,
+                headerRight: ProfileButton,
+                headerShown: true,
+                headerStyle: globalHeaderStyle,
+                tabBarStyle: {
+                    backgroundColor: GlobalStyles.foreground.backgroundColor,
+                },
+                tabBarInactiveTintColor: GlobalStyles.unselectedTab.backgroundColor,
+                tabBarActiveTintColor: GlobalStyles.selectedTab.backgroundColor,
+                tabBarIcon: ({ focused, color }) => {
+                    if (focused) return (<Ionicons size={28} name="gift" color={color} />)
+                    return (<Feather size={28} name="gift" color={color} />)
+                },
+            }}
+            />
+            <Tabs.Screen
+            name="market"
+            options = {{
+                title: 'Market',
+                headerTitleStyle: {
+                    color: 'white'
+                },
+                tabBarShowLabel: false,
+                headerRight: ProfileButton,
+                headerShown: true,
+                headerStyle: globalHeaderStyle,
+                tabBarStyle: {
+                    backgroundColor: GlobalStyles.foreground.backgroundColor,
+                },
+                tabBarInactiveTintColor: GlobalStyles.unselectedTab.backgroundColor,
+                tabBarActiveTintColor: GlobalStyles.selectedTab.backgroundColor,
+                tabBarIcon: ({ color }) => <FontAwesome size={28} name="pinterest" color={color} />,
+            }}
+            />
+            <Tabs.Screen
             name="index"
             options = {{
                 title: 'Home',
                 headerTitleStyle: {
                     color: 'white'
                 },
+                tabBarShowLabel: false,
                 headerRight: ProfileButton,
                 headerShown: true,
                 headerStyle: globalHeaderStyle,
-                tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
-            }}
-            />
-            <Tabs.Screen
-            name="giving"
-            options = {{
-                title: 'Giving',
-                headerShown: true,
-                tabBarIcon: ({ color }) => <FontAwesome size={28} name="gift" color={color} />,
+                tabBarStyle: {
+                    backgroundColor: GlobalStyles.foreground.backgroundColor,
+                },
+                tabBarInactiveTintColor: GlobalStyles.unselectedTab.backgroundColor,
+                tabBarActiveTintColor: GlobalStyles.selectedTab.backgroundColor,
+                tabBarIcon: ({ focused, color }) => {
+                    if (focused) {
+                        return (<Entypo size={28} name="home" color={color} />)
+                    } return (<AntDesign size={28} name="home" color={color} />)
+                },
             }}
             />
             <Tabs.Screen
@@ -36,16 +81,45 @@ export default function TabLayout() {
                 title: 'Notifications',
                 tabBarBadge: 99,
                 tabBarBadgeStyle: {
-                    backgroundColor: 'green'
+                    backgroundColor: 'red',
+                    fontSize: 12
                 },
-                tabBarIcon: ({ color }) => <FontAwesome size={28} name="bell" color={color} />,
+                headerTitleStyle: {
+                    color: 'white'
+                },
+                tabBarShowLabel: false,
+                headerRight: ProfileButton,
+                headerShown: true,
+                headerStyle: globalHeaderStyle,
+                tabBarStyle: {
+                    backgroundColor: GlobalStyles.foreground.backgroundColor,
+                },
+                tabBarInactiveTintColor: GlobalStyles.unselectedTab.backgroundColor,
+                tabBarActiveTintColor: GlobalStyles.selectedTab.backgroundColor,
+                tabBarIcon: ({ focused, color }) => {
+                    if (focused) return (<Ionicons size={28} name="notifications" color={color} />)
+                    return (<Ionicons size={28} name="notifications-outline" color={color} />)
+            },
             }}
             />
             <Tabs.Screen
-            name="market"
+            name="menu"
             options = {{
-                title: 'Market',
-                tabBarIcon: ({ color }) => <FontAwesome size={28} name="pinterest" color={color} />,
+                title: 'Menu',
+                headerTitleStyle: {
+                    color: 'white'
+                },
+                tabBarShowLabel: false,
+                headerRight: ProfileButton,
+                headerShown: true,
+                headerStyle: globalHeaderStyle,
+                tabBarStyle: {
+                    backgroundColor: GlobalStyles.foreground.backgroundColor,
+                },
+                tabBarInactiveTintColor: GlobalStyles.unselectedTab.backgroundColor,
+                tabBarActiveTintColor: GlobalStyles.selectedTab.backgroundColor,
+                tabBarIcon: ({ color }) => { return (<Feather size={28} name="menu" color={color} />)
+                },
             }}
             />
         </Tabs>
@@ -53,7 +127,7 @@ export default function TabLayout() {
 }
 
 const globalHeaderStyle: Animated.WithAnimatedValue<StyleProp<ViewStyle>> = {
-    backgroundColor: 'green'
+    backgroundColor: GlobalStyles.foreground.backgroundColor
 }
 
 function ProfileButton() {

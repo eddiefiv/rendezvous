@@ -14,7 +14,7 @@ const Flare: React.FC<FlareProps> = ({
     return (
         <View style={{
             backgroundColor: color,
-            borderRadius: 10,
+            borderRadius: 15,
             width: 'auto',
             paddingRight: 10,
             paddingLeft: 10,

@@ -2,6 +2,7 @@ import Card from '@/components/card';
 import {Link} from 'expo-router';
 import { View, Text, StyleSheet } from 'react-native';
 
+import { AntDesign } from '@expo/vector-icons';
 import Button from '@/components/button';
 import Flare from '@/components/flare';
 
@@ -28,8 +29,10 @@ function HomeCard(title: string, location: string, timeAgo: string, flare: strin
                 <Text>{description}</Text>
             </View>
             <View style={{display: 'flex', flexDirection: 'row'}}>
-                <Button title="Like" color="black"></Button>
-                <Button title="Comment"></Button>
+                <Button style={{backgroundColor: 'transparent'}} onPress="">
+                    <AntDesign style={{paddingTop: 10, margin: 0}} size={20} name="like2"></AntDesign>
+                </Button>
+                <Button></Button>
             </View>
         </Card>
     )
