@@ -3,14 +3,15 @@ import { AntDesign, Entypo, Feather, Ionicons } from '@expo/vector-icons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 
-import { Button } from 'react-native';
+import Button from '@/components/button';
+import { Text, View } from 'react-native';
 import { ViewStyle } from 'react-native';
 import { StyleProp } from 'react-native';
 import { Animated } from 'react-native';
 
 export default function TabLayout() {
     return (
-        <Tabs screenOptions = {{tabBarActiveTintColor: 'blue'}}>
+        <Tabs screenOptions = {{tabBarActiveTintColor: 'blue', tabBarStyle: {borderTopWidth: 0, elevation: 0, shadowOpacity: 0, backgroundColor: 'transparent', borderTopColor: 'transparent'}}}>
             <Tabs.Screen
             name="giving"
             options = {{
@@ -19,7 +20,6 @@ export default function TabLayout() {
                     color: 'white'
                 },
                 tabBarShowLabel: false,
-                headerRight: ProfileButton,
                 headerShown: true,
                 headerStyle: globalHeaderStyle,
                 tabBarStyle: {
@@ -41,7 +41,6 @@ export default function TabLayout() {
                     color: 'white'
                 },
                 tabBarShowLabel: false,
-                headerRight: ProfileButton,
                 headerShown: true,
                 headerStyle: globalHeaderStyle,
                 tabBarStyle: {
@@ -60,11 +59,19 @@ export default function TabLayout() {
                     color: 'white'
                 },
                 tabBarShowLabel: false,
-                headerRight: ProfileButton,
+                header: (() => {
+                    return (
+                        <View style={{height: 100, backgroundColor: GlobalStyles.foreground.backgroundColor, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center'}}>
+                            <Text style={{fontSize: 18, fontWeight: 'bold', color: GlobalStyles.primary.backgroundColor, paddingBottom: 10}}>Header Text</Text>
+                        </View>
+                    )
+                }),
                 headerShown: true,
                 headerStyle: globalHeaderStyle,
                 tabBarStyle: {
                     backgroundColor: GlobalStyles.foreground.backgroundColor,
+                    borderTopStartRadius: 20,
+                    borderTopEndRadius: 20,
                 },
                 tabBarInactiveTintColor: GlobalStyles.unselectedTab.backgroundColor,
                 tabBarActiveTintColor: GlobalStyles.selectedTab.backgroundColor,
@@ -88,7 +95,6 @@ export default function TabLayout() {
                     color: 'white'
                 },
                 tabBarShowLabel: false,
-                headerRight: ProfileButton,
                 headerShown: true,
                 headerStyle: globalHeaderStyle,
                 tabBarStyle: {
@@ -110,7 +116,6 @@ export default function TabLayout() {
                     color: 'white'
                 },
                 tabBarShowLabel: false,
-                headerRight: ProfileButton,
                 headerShown: true,
                 headerStyle: globalHeaderStyle,
                 tabBarStyle: {
@@ -128,14 +133,4 @@ export default function TabLayout() {
 
 const globalHeaderStyle: Animated.WithAnimatedValue<StyleProp<ViewStyle>> = {
     backgroundColor: GlobalStyles.foreground.backgroundColor
-}
-
-function ProfileButton() {
-    return (
-        <Button
-            title="Learn More"
-            color="skyblue"
-            accessibilityLabel="Learn more about this purple button"
-        />
-    );
 }

@@ -3,11 +3,13 @@ node_modules/
 dist/
 npm-debug.*
 *.jks
+*.env
 *.p8
 *.p12
 *.key
 *.mobileprovision
 *.orig.*
+*.venv/
 web-build/
 
 # macOS

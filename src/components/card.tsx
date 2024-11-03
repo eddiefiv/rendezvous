@@ -1,6 +1,6 @@
-import React, { Children, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
-import { View, Text, Button, TextStyle } from 'react-native';
+import { View, TextStyle } from 'react-native';
 import { StyleProp, ViewStyle, StyleSheet } from 'react-native';
 
 import GlobalStyles from './styles';
@@ -36,7 +36,8 @@ const Card: React.FC<CardProps> = ({
 const styles = StyleSheet.create({
     card: {
         backgroundColor: GlobalStyles.primary.backgroundColor,
-        width: '90%',
+        width: 'auto',
+        height: 'auto',
         borderRadius: 10,
         padding: 15,
         shadowRadius: 5, // adds shadow on ios

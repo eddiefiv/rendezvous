@@ -1,7 +1,7 @@
 import { AntDesign } from '@expo/vector-icons';
 
 import React, { ReactNode } from 'react';
-import { Text, StyleSheet, Pressable, View, GestureResponderEvent, StyleProp, ViewStyle } from 'react-native';
+import { Text, StyleSheet, Pressable, StyleProp, ViewStyle } from 'react-native';
 
 interface ButtonProps {
     onPress: any,
@@ -28,7 +28,6 @@ const defaultButtonStyle = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 32,
         borderRadius: 4,
-        elevation: 3,
         backgroundColor: 'transparent',
     },
     text: {

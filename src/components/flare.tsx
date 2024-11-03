@@ -1,5 +1,5 @@
 import React from "react";
-import { ColorValue, StyleSheet } from "react-native";
+import { ColorValue } from "react-native";
 import { Text, View } from "react-native";
 
 interface FlareProps {
