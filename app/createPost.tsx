@@ -4,7 +4,7 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 import GlobalStyles from "@/components/styles";
 import { useState } from "react";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, Entypo } from "@expo/vector-icons";
 import axios from "axios";
 
 const flareData = [
@@ -55,7 +55,10 @@ function CreatePost() {
 
     return (
         <View style={{display: 'flex', flexDirection: 'column'}}>
-            <View style={{height: 100, backgroundColor: GlobalStyles.foreground.backgroundColor, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center'}}>
+            <View style={{height: 100, backgroundColor: GlobalStyles.foreground.backgroundColor, display: 'flex', flexDirection: 'row', alignItems: 'flex-end'}}>
+                <Button style={{alignSelf: 'auto'}} onPress={() => router.back()}>
+                    <Entypo name="chevron-left" size={20} color={GlobalStyles.primary.backgroundColor} />
+                </Button>
                 <Text style={{fontSize: 18, fontWeight: 'bold', color: GlobalStyles.primary.backgroundColor, paddingBottom: 10}}>Create A Post</Text>
             </View>
             <View style={{display: 'flex', flexDirection: 'column', margin: 30}}>

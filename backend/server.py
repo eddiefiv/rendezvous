@@ -34,6 +34,27 @@ def make_post():
 
     return make_response(jsonify({"data": post.dict()}))
 
+@app.route('/charities', methods = ["GET", "OPTIONS"])
+@cross_origin()
+def charities():
+    if request.method == "OPTIONS":
+        return _build_cors_preflight_response()
+    charities = manager.get_charities(20)
+    if charities != None:
+        return make_response(jsonify({"data": [charity.dict() for charity in charities]}))
+    return _corsify_actual_response(make_response(jsonify({"data": []})))
+
+@app.route('/charity', methods = ["GET", "OPTIONS"])
+@cross_origin()
+def charity():
+    if request.method == "OPTIONS":
+        return _build_cors_preflight_response()
+    params = request.args
+    charity = manager.get_charity(params['charity_id'])
+    if charity != None:
+        return make_response(jsonify({"data": charity.dict()}))
+    return _corsify_actual_response(make_response(jsonify({"data": []})))
+
 def _build_cors_preflight_response():
     response = make_response()
     response.headers.add("Access-Control-Allow-Origin", "*")

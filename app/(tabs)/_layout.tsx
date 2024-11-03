@@ -1,5 +1,5 @@
 import GlobalStyles from '@/components/styles';
-import { AntDesign, Entypo, Feather, Ionicons } from '@expo/vector-icons';
+import { AntDesign, Entypo, Feather, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 
@@ -20,10 +20,19 @@ export default function TabLayout() {
                     color: 'white'
                 },
                 tabBarShowLabel: false,
+                header: (() => {
+                    return (
+                        <View style={{height: 100, backgroundColor: GlobalStyles.foreground.backgroundColor, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center'}}>
+                            <Text style={{fontSize: 18, fontWeight: 'bold', color: GlobalStyles.primary.backgroundColor, paddingBottom: 10}}>Giving</Text>
+                        </View>
+                    )
+                }),
                 headerShown: true,
                 headerStyle: globalHeaderStyle,
                 tabBarStyle: {
                     backgroundColor: GlobalStyles.foreground.backgroundColor,
+                    borderTopStartRadius: 20,
+                    borderTopEndRadius: 20,
                 },
                 tabBarInactiveTintColor: GlobalStyles.unselectedTab.backgroundColor,
                 tabBarActiveTintColor: GlobalStyles.selectedTab.backgroundColor,
@@ -41,14 +50,27 @@ export default function TabLayout() {
                     color: 'white'
                 },
                 tabBarShowLabel: false,
+                header: (() => {
+                    return (
+                        <View style={{height: 100, backgroundColor: GlobalStyles.foreground.backgroundColor, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center'}}>
+                            <Text style={{fontSize: 18, fontWeight: 'bold', color: GlobalStyles.primary.backgroundColor, paddingBottom: 10}}>Market</Text>
+                        </View>
+                    )
+                }),
                 headerShown: true,
                 headerStyle: globalHeaderStyle,
                 tabBarStyle: {
                     backgroundColor: GlobalStyles.foreground.backgroundColor,
+                    borderTopStartRadius: 20,
+                    borderTopEndRadius: 20,
                 },
                 tabBarInactiveTintColor: GlobalStyles.unselectedTab.backgroundColor,
                 tabBarActiveTintColor: GlobalStyles.selectedTab.backgroundColor,
-                tabBarIcon: ({ color }) => <FontAwesome size={28} name="pinterest" color={color} />,
+                tabBarIcon: ({ focused, color }) => {
+                    if (focused) {
+                        return (<MaterialCommunityIcons size={28} name="shopping" color={color} />)
+                    } return (<MaterialCommunityIcons size={28} name="shopping-outline" color={color} />)
+                },
             }}
             />
             <Tabs.Screen
@@ -62,7 +84,7 @@ export default function TabLayout() {
                 header: (() => {
                     return (
                         <View style={{height: 100, backgroundColor: GlobalStyles.foreground.backgroundColor, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center'}}>
-                            <Text style={{fontSize: 18, fontWeight: 'bold', color: GlobalStyles.primary.backgroundColor, paddingBottom: 10}}>Header Text</Text>
+                            <Text style={{fontSize: 18, fontWeight: 'bold', color: GlobalStyles.primary.backgroundColor, paddingBottom: 10}}>Home</Text>
                         </View>
                     )
                 }),
@@ -95,10 +117,19 @@ export default function TabLayout() {
                     color: 'white'
                 },
                 tabBarShowLabel: false,
+                header: (() => {
+                    return (
+                        <View style={{height: 100, backgroundColor: GlobalStyles.foreground.backgroundColor, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center'}}>
+                            <Text style={{fontSize: 18, fontWeight: 'bold', color: GlobalStyles.primary.backgroundColor, paddingBottom: 10}}>Notifications</Text>
+                        </View>
+                    )
+                }),
                 headerShown: true,
                 headerStyle: globalHeaderStyle,
                 tabBarStyle: {
                     backgroundColor: GlobalStyles.foreground.backgroundColor,
+                    borderTopStartRadius: 20,
+                    borderTopEndRadius: 20,
                 },
                 tabBarInactiveTintColor: GlobalStyles.unselectedTab.backgroundColor,
                 tabBarActiveTintColor: GlobalStyles.selectedTab.backgroundColor,
@@ -115,11 +146,19 @@ export default function TabLayout() {
                 headerTitleStyle: {
                     color: 'white'
                 },
-                tabBarShowLabel: false,
+                tabBarShowLabel: false,header: (() => {
+                    return (
+                        <View style={{height: 100, backgroundColor: GlobalStyles.foreground.backgroundColor, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center'}}>
+                            <Text style={{fontSize: 18, fontWeight: 'bold', color: GlobalStyles.primary.backgroundColor, paddingBottom: 10}}>Menu</Text>
+                        </View>
+                    )
+                }),
                 headerShown: true,
                 headerStyle: globalHeaderStyle,
                 tabBarStyle: {
                     backgroundColor: GlobalStyles.foreground.backgroundColor,
+                    borderTopStartRadius: 20,
+                    borderTopEndRadius: 20,
                 },
                 tabBarInactiveTintColor: GlobalStyles.unselectedTab.backgroundColor,
                 tabBarActiveTintColor: GlobalStyles.selectedTab.backgroundColor,

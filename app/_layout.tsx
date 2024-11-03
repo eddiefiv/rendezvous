@@ -5,6 +5,7 @@ export default function Layout() {
         <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }}/>
             <Stack.Screen name="createPost" options={{headerShown: false}} />
+            <Stack.Screen name="charityPost" options={{headerShown: false}} />
         </Stack>
     );
 }

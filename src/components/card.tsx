@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import { View, TextStyle } from 'react-native';
+import { View, TextStyle, GestureResponderEvent } from 'react-native';
 import { StyleProp, ViewStyle, StyleSheet } from 'react-native';
 
 import GlobalStyles from './styles';
@@ -8,6 +8,7 @@ import GlobalStyles from './styles';
 interface CardProps {
     header?: ReactNode,
     children?: ReactNode,
+    onTouchEnd?: any,
     titleStyle?: StyleProp<TextStyle>,
     headerStyle?: StyleProp<ViewStyle>,
     contentStyle?: StyleProp<ViewStyle>,
@@ -17,12 +18,13 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({
     header,
     children,
+    onTouchEnd,
     headerStyle = {},
     contentStyle = {},
     cardStyle = {}
     }) => {
     return (
-        <View style={[styles.card, cardStyle]}>
+        <View onTouchEnd={onTouchEnd} style={[styles.card, cardStyle]}>
             <View style={[styles.header, headerStyle]}>
                 {header}
             </View>
